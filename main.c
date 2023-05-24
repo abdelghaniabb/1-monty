@@ -8,10 +8,10 @@
  * @argv: argv
  * Return: int
  */
-
+stack_t *stack = NULL;
 int main(int argc, char *argv[])
 {
-	stack_t *stack = NULL;
+
 	FILE *file;
 	char line[100];
 	int line_number;
