@@ -26,7 +26,7 @@ void push(stack_t **stack, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		/*fprintf(stderr, "Error: Memory allocation failed\n");*/
+		fprintf(stderr, "Error: Memory allocation failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -49,9 +49,11 @@ void push(stack_t **stack, unsigned int line_number)
  *
  * Return: void
  */
-void pall(stack_t **stack,  unsigned int line_number)
+void pall(stack_t **stack)
 {
-	stack_t *current = *stack;
+	stack_t *current;
+
+	current = *stack;
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
