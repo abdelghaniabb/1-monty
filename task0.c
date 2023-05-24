@@ -7,6 +7,9 @@
 
 int stack[STACK_SIZE];
 int top = -1;
+int i;
+FILE *file;
+char line[100];
 
 void push(int value) {
 	if (top == STACK_SIZE - 1) {
@@ -17,25 +20,27 @@ void push(int value) {
 }
 
 void pall() {
-    for (int i = top; i >= 0; i--) {
+    for (i = top; i >= 0; i--) {
         printf("%d\n", stack[i]);
     }
 }
 
 int main(int argc, char *argv[]) {
+	
+	int line_number = 1;
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
-    FILE *file = fopen(argv[1], "r");
+    file = fopen(argv[1], "r");
     if (file == NULL) {
         fprintf(stderr, "Failed to open file: %s\n", argv[1]);
         return EXIT_FAILURE;
     }
 
-    char line[100];
-    int line_number = 1;
+    
+    
 
     while (fgets(line, sizeof(line), file)) {
         char opcode[10];
