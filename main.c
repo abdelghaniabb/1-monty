@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 			push(&stack, line_number);
 		else if (strcmp(opcode, "pall") == 0)
 			pall(&stack, line_number);
+
 		else
 		{
 			fprintf(stderr, "L%d: Unknown opcode: %s\n", line_number, opcode);
