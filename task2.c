@@ -7,6 +7,8 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
+stack_t *temp;
+
     /* Validate arguments */
     if (stack == NULL || *stack == NULL)
     {
@@ -14,7 +16,7 @@ void pop(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 
-    stack_t *temp = *stack;
+	temp = *stack;
     *stack = (*stack)->next;
 
     if (*stack != NULL)
