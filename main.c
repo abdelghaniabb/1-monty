@@ -42,13 +42,13 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Failed to open file: %s\n", argv[1]);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
 	}
 	line_number = 1;
 	while (fgets(line, sizeof(line), file))
