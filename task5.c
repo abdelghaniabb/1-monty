@@ -6,3 +6,4 @@ void nop(void)
 {
 	/* No operation */
 }
+
