@@ -7,6 +7,7 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+
 	int value;
 	char *value_str;
 	stack_t *new_node;
