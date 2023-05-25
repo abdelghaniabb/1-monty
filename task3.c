@@ -1,4 +1,10 @@
 #include "main.h"
+
+/**
+ * swap - swaps the top two elements of the stack
+ * @stack: Double pointer to the stack
+ * @line_number: Line number in the file
+ */
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
