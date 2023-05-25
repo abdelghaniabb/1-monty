@@ -42,6 +42,8 @@ int main(int argc, char *argv[])
 			push(&stack, line_number);
 		else if (strcmp(opcode, "pall") == 0)
 			pall(&stack);
+		else if (strcmp(opcode, "pint") == 0)
+			pint(&stack, line_number);
 		else
 		{
 			fprintf(stderr, "L%d: Unknown opcode: %s\n", line_number, opcode);
