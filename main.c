@@ -29,6 +29,9 @@ void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file)
 	else if (strcmp(opcode, "add") == 0)
 		add(stack, line_number);
 
+	else if (strcmp(opcode, "nop") == 0)
+		nop();
+
 	else
 	{
 		fprintf(stderr, "L%d: Unknown instruction %s\n", line_number, opcode);
