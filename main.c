@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		handle_opcodes(&stack, opcode, line_number, file);
+		handle(&stack, opcode, line_number, file);
 
 		line_number++;
 	}
