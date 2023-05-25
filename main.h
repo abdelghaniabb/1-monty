@@ -34,8 +34,13 @@ typedef struct instruction_s
 } instruction_t;
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 /* Function prototypes */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack);
 void pint(stack_t **stack, unsigned int line_number);
+void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file);
 #endif /* MONTY_H */

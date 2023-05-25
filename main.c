@@ -1,7 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "main.h"
+/**
+ * handle - handle opcodes
+ * @stack: the head of the list
+ * @opcode: opcode
+ * @L_N: line_number
+ * @file: file
+ * Return: void
+ */
+void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file)
+{
+	int line_number = L_N;
+
+	if (strcmp(opcode, "push") == 0)
+		push(stack, line_number);
+	else if (strcmp(opcode, "pall") == 0)
+		pall(stack);
+	else if (strcmp(opcode, "pint") == 0)
+		pint(stack, line_number);
+	else
+	{
+		fprintf(stderr, "L%d: Unknown opcode: %s\n", line_number, opcode);
+		fclose(file);
+		exit(EXIT_FAILURE);
+	}
+}
 /**
  * main - check code
  * @argc: argc
@@ -38,18 +60,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		if (strcmp(opcode, "push") == 0)
-			push(&stack, line_number);
-		else if (strcmp(opcode, "pall") == 0)
-			pall(&stack);
-		else if (strcmp(opcode, "pint") == 0)
-			pint(&stack, line_number);
-		else
-		{
-			fprintf(stderr, "L%d: Unknown opcode: %s\n", line_number, opcode);
-			fclose(file);
-			return (EXIT_FAILURE);
-		}
+		handle_opcodes(&stack, opcode, line_number, file);
 
 		line_number++;
 	}
