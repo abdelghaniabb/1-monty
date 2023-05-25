@@ -19,7 +19,7 @@ void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file)
 		pint(stack, line_number);
 	else
 	{
-		fprintf(stderr, "L%d: Unknown opcode: %s\n", line_number, opcode);
+		fprintf(stderr, "L%d: Unknown instruction: %s\n", line_number, opcode);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		handle_opcodes(&stack, opcode, line_number, file);
+		handle(&stack, opcode, line_number, file);
 
 		line_number++;
 	}
