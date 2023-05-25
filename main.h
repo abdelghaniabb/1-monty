@@ -41,6 +41,8 @@ typedef struct instruction_s
 /* Function prototypes */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack);
+int _isdigit(const char *str);
 void pint(stack_t **stack, unsigned int line_number);
 void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file);
+
 #endif /* MONTY_H */

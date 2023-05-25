@@ -12,7 +12,8 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node;
 
 	value_str = strtok(NULL, " \t\n");
-	if (value_str == NULL)
+
+	if (value_str == NULL || _isdigit(value_str) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -57,4 +58,26 @@ void pall(stack_t **stack)
 		current = current->next;
 	}
 }
+/**
+ * _isdigit - Checks if a string represents an integer
+ * @str: String to check
+ * Return: 1 if string is an integer, 0 otherwise
+ */
+int _isdigit(const char *str)
+{
+	int i = 0;
 
+	if (str == NULL || *str == '\0')
+		return (0);
+
+	if (str[0] == '-')
+		i++;
+
+	for (; str[i] != '\0'; i++)
+	{
+		if (str[i] < '0' || str[i] > '9')
+		return (0);
+	}
+
+	return (1);
+}
