@@ -13,13 +13,16 @@ void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file)
 
 	if (strcmp(opcode, "push") == 0)
 		push(stack, line_number);
+
 	else if (strcmp(opcode, "pall") == 0)
 		pall(stack);
+
 	else if (strcmp(opcode, "pint") == 0)
 		pint(stack, line_number);
+
 	else
 	{
-		fprintf(stderr, "L%d: Unknown opcode: %s\n", line_number, opcode);
+		fprintf(stderr, "L%d: Unknown instruction %s\n", line_number, opcode);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
