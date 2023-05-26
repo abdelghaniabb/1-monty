@@ -32,6 +32,9 @@ void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file)
 	else if (strcmp(opcode, "nop") == 0)
 		nop();
 
+	else if (strcmp(opcode, "sub") == 0)
+		sub(stack, line_number);
+
 	else
 	{
 		fprintf(stderr, "L%d: Unknown instruction %s\n", line_number, opcode);

@@ -44,10 +44,11 @@ void pall(stack_t **stack);
 int _isdigit(const char *str);
 void pint(stack_t **stack, unsigned int line_number);
 void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file);
-void pop(stack_t **stack, unsigned int line_number);
+int pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(void);
+void sub(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
 
