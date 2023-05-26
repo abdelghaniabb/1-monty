@@ -44,10 +44,10 @@ void push(stack_t **stack, unsigned int line_number)
 /**
  * pall - prints all the values on the stack, starting from the top
  * @stack: the header of the list
- *
+ * @line_number: line_number
  * Return: void
  */
-void pall(stack_t **stack)
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *current;
 

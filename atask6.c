@@ -10,6 +10,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	int top;
 	int result;
 	stack_t *new_node;
+	stack_t *current;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -17,21 +18,23 @@ void sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	second_top = pop(stack, line_number);
-	top = pop(stack, line_number);
-	result = top - second_top;
 
+	current = *stack;
+	second_top = current->n;
+	top = current->next->n;
+	pop(stack, line_number);
+	pop(stack, line_number);
+
+	result = top - second_top;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 	new_node->n = result;
 	new_node->prev = NULL;
 	new_node->next = NULL;
-
 	if (*stack == NULL)
 		*stack = new_node;
 	else
@@ -41,3 +44,4 @@ void sub(stack_t **stack, unsigned int line_number)
 		*stack = new_node;
 	}
 }
+

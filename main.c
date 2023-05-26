@@ -10,37 +10,32 @@
 void handle(stack_t **stack, char *opcode, unsigned int L_N, FILE *file)
 {
 	int line_number = L_N;
+	int i = 0;
+	instruction_t instructions[] = {
+	{"push", push},
+	{"pall", pall},
+	{"pint", pint},
+	{"pop", pop},
+	{"swap", swap},
+	{"add", add},
+	{"nop", nop},
+	{"sub", sub},
+	{NULL, NULL}
+	};
 
-	if (strcmp(opcode, "push") == 0)
-		push(stack, line_number);
-
-	else if (strcmp(opcode, "pall") == 0)
-		pall(stack);
-
-	else if (strcmp(opcode, "pint") == 0)
-		pint(stack, line_number);
-
-	else if (strcmp(opcode, "pop") == 0)
-		pop(stack, line_number);
-
-	else if (strcmp(opcode, "swap") == 0)
-		swap(stack, line_number);
-
-	else if (strcmp(opcode, "add") == 0)
-		add(stack, line_number);
-
-	else if (strcmp(opcode, "nop") == 0)
-		nop();
-
-	else if (strcmp(opcode, "sub") == 0)
-		sub(stack, line_number);
-
-	else
+	while (instructions[i].opcode != NULL)
 	{
+		if (strcmp(opcode, instructions[i].opcode) == 0)
+		{
+			instructions[i].f(stack, line_number);
+			return;
+		}
+		i++;
+	}
 		fprintf(stderr, "L%d: Unknown instruction %s\n", line_number, opcode);
 		fclose(file);
 		exit(EXIT_FAILURE);
-	}
+
 }
 /**
  * main - check code

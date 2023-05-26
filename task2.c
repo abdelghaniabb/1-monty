@@ -6,7 +6,7 @@
  * @line_number: Line number in the file
  * Return: int
  */
-int pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -23,7 +23,7 @@ int pop(stack_t **stack, unsigned int line_number)
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
 
-	return (temp->n);
+
 	free(temp);
 }
 
